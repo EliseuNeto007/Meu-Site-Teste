@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Loja de Calçados</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>LOJA DE CALÇADOS</h1>
+        <p>Entre na sua conta!</p>
+    </header>
+
+    <section class="login">
+        <h2>Fazer Login</h2>
+
+        <form onsubmit="entrar(event)">
+            <label>E-mail:</label>
+            <input type="email" id="email" placeholder="Digite seu e-mail" required>
+
+            <label>Senha:</label>
+            <input type="password" id="senha" placeholder="Digite sua senha" required>
+
+            <button type="submit">Entrar</button>
+        </form>
+
+        <p>Ainda não tem conta?</p>
+        <a href="cadastro.html">Cadastre-se</a>
+
+        <br><br>
+        <a href="index.html">Voltar para a loja</a>
+    </section>
+
+    <script>
+        function entrar(event) {
+            event.preventDefault();
+
+            let email = document.getElementById("email").value;
+            let senha = document.getElementById("senha").value;
+
+            if (email && senha) {
+                alert("Login realizado com sucesso!");
+                window.location.href = "compra.html";
+            }
+        }
+    </script>
+
+</body>
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>LOJA DE CALÇADOS</h1>
+        <p>Finalize sua compra!</p>
+    </header>
+
+    <nav>
+        
+    </nav>
+
+    <section class="compra">
+        <h2>Dados da Compra</h2>
+
+        <form onsubmit="finalizarCompra(event)">
+
+            <label>Nome completo:</label>
+            <input type="text" id="nome" placeholder="Digite seu nome" required>
+
+            <label>E-mail:</label>
+            <input type="email" id="email" placeholder="Digite seu e-mail" required>
+
+            <label>Produto:</label>
+            <select id="produto" required>
+                <option value="">Selecione um produto</option>
+                <option>Tênis Nike</option>
+                <option>Tênis Adidas</option>
+                <option>Tênis Puma</option>
+                <option>Tênis Esportivo</option>
+                <option>Chinelo Havaianas</option>
+                <option>Chinelo Slide</option>
+                <option>Chinelo Conforto</option>
+                <option>Sapato Social</option>
+                <option>Sapato Casual</option>
+                <option>Bota de Couro</option>
+            </select>
+
+            <label>Tamanho:</label>
+            <select id="tamanho" required>
+                <option value="">Selecione o tamanho</option>
+                <option>35</option>
+                <option>36</option>
+                <option>37</option>
+                <option>38</option>
+                <option>39</option>
+                <option>40</option>
+                <option>41</option>
+                <option>42</option>
+                <option>43</option>
+                <option>44</option>
+            </select>
+
+            <label>Quantidade:</label>
+            <input type="number" id="quantidade" min="1" value="1" required>
+
+            <label>Endereço de entrega:</label>
+            <input type="text" id="endereco" placeholder="Digite seu endereço" required>
+
+            <label>Forma de pagamento:</label>
+            <select id="pagamento" required>
+                <option value="">Selecione</option>
+                <option>Pix</option>
+                <option>Cartão de crédito</option>
+                <option>Cartão de débito</option>
+                <option>Dinheiro</option>
+            </select>
+
+            <button type="submit">Finalizar Compra</button>
+
+        </form>
+    </section>
+
+    <script>
+        function finalizarCompra(event) {
+            event.preventDefault();
+
+            let nome = document.getElementById("nome").value;
+            let produto = document.getElementById("produto").value;
+            let quantidade = document.getElementById("quantidade").value;
+            let tamanho = document.getElementById("tamanho").value;
+            let pagamento = document.getElementById("pagamento").value;
+
+            alert(
+                "Compra realizada com sucesso!\n\n" +
+                "Cliente: " + nome +
+                "\nProduto: " + produto +
+                "\nQuantidade: " + quantidade +
+                "\nTamanho: " + tamanho +
+                "\nPagamento: " + pagamento
+            );
+
+            window.location.href = "index.html";
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+<div class="produto">
+    <img src="imagesnike.jpg" alt="Tênis Nike">
+    <h3>Tênis Nike</h3>
+    <p>Tênis confortável e moderno para o dia a dia.</p>
+    <h3>R$ 199,90</h3>
+    <button onclick="comprar('Tênis Nike')">Comprar</button>
+</div>
+
+<div class="produto">
+    <img src="adidas.jpg" alt="Tênis Adidas">
+    <h3>Tênis Adidas</h3>
+    <p>Tênis esportivo ideal para caminhadas e atividades físicas.</p>
+    <h3>R$ 219,90</h3>
+    <button onclick="comprar('Tênis Adidas')">Comprar</button>
+</div>
+
+<div class="produto">
+    <img src="puma.jpg" alt="Tênis Puma">
+    <h3>Tênis Puma</h3>
+    <p>Design moderno com ótimo conforto para seus pés.</p>
+    <h3>R$ 189,90</h3>
+    <button onclick="comprar('Tênis Puma')">Comprar</button>
+</div>
+
+<div class="produto">
+    <img src="esportivo.jpg" alt="Tênis Esportivo">
+    <h3>Tênis Esportivo</h3>
+    <p>Perfeito para corridas, academia e exercícios.</p>
+    <h3>R$ 159,90</h3>
+    <button onclick="comprar('Tênis Esportivo')">Comprar</button>
+</div>
+
+<div class="produto">
+    <img src="havaianas (1).jpg" alt="Chinelo Havaianas">
+    <h3>Chinelo Havaianas</h3>
+    <p>Chinelo leve e confortável para todos os momentos.</p>
+    <h3>R$ 39,90</h3>
+    <button onclick="comprar('Chinelo Havaianas')">Comprar</button>
+</div>
+
